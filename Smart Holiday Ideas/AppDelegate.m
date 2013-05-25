@@ -12,6 +12,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.databaseName = @"travel-destinations.sqlite";
+    NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentDir = [documentPaths objectAtIndex:0];
+    self.databasePath = [documentDir stringByAppendingPathComponent:self.databaseName];
+    [self createDatabaseIfNotExists];
+
     // Override point for customization after application launch.
     return YES;
 }
@@ -42,5 +48,18 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+- (void)createDatabaseIfNotExists
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:self.databasePath]) {
+        NSLog(@"Database already copied");
+        return;
+    }
+    NSLog(@"Copying database");
+    NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseName];
+    [fileManager copyItemAtPath:databasePathFromApp toPath:self.databasePath error:nil];
+}
+
 
 @end

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+#import "DatabaseService.h"
+
 @interface MasterViewController : UITableViewController
+
+@property (strong, nonatomic) DatabaseService *databaseService;
+@property (strong, nonatomic) NSMutableArray *travelDestinations;
 
 @end

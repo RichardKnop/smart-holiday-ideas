@@ -19,7 +19,12 @@
 		D92BC98D175140E500479C6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92BC98B175140E500479C6D /* MainStoryboard.storyboard */; };
 		D92BC990175140E500479C6D /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC98F175140E500479C6D /* MasterViewController.m */; };
 		D92BC993175140E500479C6D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC992175140E500479C6D /* DetailViewController.m */; };
-		D92BC99B1751433600479C6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92BC99A1751433600479C6D /* CoreData.framework */; };
+		D92BC9A9175145F600479C6D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D92BC9A8175145F600479C6D /* libsqlite3.dylib */; };
+		D92BC9AD17514A3300479C6D /* DatabaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9AC17514A3300479C6D /* DatabaseService.m */; };
+		D92BC9B117514C8E00479C6D /* TravelDestination.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9B017514C8E00479C6D /* TravelDestination.m */; };
+		D92BC9B217514EC400479C6D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC99E1751457800479C6D /* FMDatabase.m */; };
+		D92BC9B317514EC900479C6D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9A71751458100479C6D /* FMResultSet.m */; };
+		D92BC9B61751534700479C6D /* TravelDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9B51751534700479C6D /* TravelDestinationCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,24 @@
 		D92BC992175140E500479C6D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		D92BC999175142ED00479C6D /* travel-destinations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "travel-destinations.sqlite"; sourceTree = "<group>"; };
 		D92BC99A1751433600479C6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D92BC99D1751457800479C6D /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		D92BC99E1751457800479C6D /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		D92BC99F1751457800479C6D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		D92BC9A01751457800479C6D /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		D92BC9A11751457800479C6D /* FMDatabasePool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		D92BC9A21751457800479C6D /* FMDatabasePool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		D92BC9A31751457800479C6D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		D92BC9A41751457800479C6D /* FMDatabaseQueue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		D92BC9A51751458100479C6D /* fmdb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		D92BC9A61751458100479C6D /* FMResultSet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		D92BC9A71751458100479C6D /* FMResultSet.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		D92BC9A8175145F600479C6D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D92BC9AB17514A3300479C6D /* DatabaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseService.h; sourceTree = "<group>"; };
+		D92BC9AC17514A3300479C6D /* DatabaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseService.m; sourceTree = "<group>"; };
+		D92BC9AF17514C8E00479C6D /* TravelDestination.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDestination.h; sourceTree = "<group>"; };
+		D92BC9B017514C8E00479C6D /* TravelDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDestination.m; sourceTree = "<group>"; };
+		D92BC9B41751534700479C6D /* TravelDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDestinationCell.h; sourceTree = "<group>"; };
+		D92BC9B51751534700479C6D /* TravelDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDestinationCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D92BC99B1751433600479C6D /* CoreData.framework in Frameworks */,
+				D92BC9A9175145F600479C6D /* libsqlite3.dylib in Frameworks */,
 				D92BC974175140E400479C6D /* UIKit.framework in Frameworks */,
 				D92BC976175140E400479C6D /* Foundation.framework in Frameworks */,
 				D92BC978175140E400479C6D /* CoreGraphics.framework in Frameworks */,
@@ -63,6 +86,7 @@
 		D92BC967175140E400479C6D = {
 			isa = PBXGroup;
 			children = (
+				D92BC9A8175145F600479C6D /* libsqlite3.dylib */,
 				D92BC99A1751433600479C6D /* CoreData.framework */,
 				D92BC979175140E400479C6D /* Smart Holiday Ideas */,
 				D92BC972175140E400479C6D /* Frameworks */,
@@ -91,7 +115,9 @@
 		D92BC979175140E400479C6D /* Smart Holiday Ideas */ = {
 			isa = PBXGroup;
 			children = (
-				D92BC999175142ED00479C6D /* travel-destinations.sqlite */,
+				D92BC9AE17514A7300479C6D /* Entity */,
+				D92BC9AA17514A1700479C6D /* Database */,
+				D92BC99C1751456200479C6D /* FMDB */,
 				D92BC982175140E400479C6D /* AppDelegate.h */,
 				D92BC983175140E400479C6D /* AppDelegate.m */,
 				D92BC98B175140E500479C6D /* MainStoryboard.storyboard */,
@@ -99,6 +125,8 @@
 				D92BC98F175140E500479C6D /* MasterViewController.m */,
 				D92BC991175140E500479C6D /* DetailViewController.h */,
 				D92BC992175140E500479C6D /* DetailViewController.m */,
+				D92BC9B41751534700479C6D /* TravelDestinationCell.h */,
+				D92BC9B51751534700479C6D /* TravelDestinationCell.m */,
 				D92BC97A175140E400479C6D /* Supporting Files */,
 			);
 			path = "Smart Holiday Ideas";
@@ -107,6 +135,7 @@
 		D92BC97A175140E400479C6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D92BC999175142ED00479C6D /* travel-destinations.sqlite */,
 				D92BC97B175140E400479C6D /* Smart Holiday Ideas-Info.plist */,
 				D92BC97C175140E400479C6D /* InfoPlist.strings */,
 				D92BC97F175140E400479C6D /* main.m */,
@@ -116,6 +145,42 @@
 				D92BC989175140E400479C6D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D92BC99C1751456200479C6D /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				D92BC9A51751458100479C6D /* fmdb.m */,
+				D92BC9A61751458100479C6D /* FMResultSet.h */,
+				D92BC9A71751458100479C6D /* FMResultSet.m */,
+				D92BC99D1751457800479C6D /* FMDatabase.h */,
+				D92BC99E1751457800479C6D /* FMDatabase.m */,
+				D92BC99F1751457800479C6D /* FMDatabaseAdditions.h */,
+				D92BC9A01751457800479C6D /* FMDatabaseAdditions.m */,
+				D92BC9A11751457800479C6D /* FMDatabasePool.h */,
+				D92BC9A21751457800479C6D /* FMDatabasePool.m */,
+				D92BC9A31751457800479C6D /* FMDatabaseQueue.h */,
+				D92BC9A41751457800479C6D /* FMDatabaseQueue.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		D92BC9AA17514A1700479C6D /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				D92BC9AB17514A3300479C6D /* DatabaseService.h */,
+				D92BC9AC17514A3300479C6D /* DatabaseService.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		D92BC9AE17514A7300479C6D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				D92BC9AF17514C8E00479C6D /* TravelDestination.h */,
+				D92BC9B017514C8E00479C6D /* TravelDestination.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,10 +249,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92BC9B317514EC900479C6D /* FMResultSet.m in Sources */,
+				D92BC9B217514EC400479C6D /* FMDatabase.m in Sources */,
 				D92BC980175140E400479C6D /* main.m in Sources */,
 				D92BC984175140E400479C6D /* AppDelegate.m in Sources */,
 				D92BC990175140E500479C6D /* MasterViewController.m in Sources */,
 				D92BC993175140E500479C6D /* DetailViewController.m in Sources */,
+				D92BC9AD17514A3300479C6D /* DatabaseService.m in Sources */,
+				D92BC9B117514C8E00479C6D /* TravelDestination.m in Sources */,
+				D92BC9B61751534700479C6D /* TravelDestinationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
