@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "TravelDestinationCell.h"
 #import "TravelDestination.h"
+#import "Image.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -62,11 +63,25 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TravelDestinationCell *travelDestinationCell = [tableView dequeueReusableCellWithIdentifier:@"TravelDestinationCell" forIndexPath:indexPath];
+    
     TravelDestination *travelDestination = [self.travelDestinations objectAtIndex:indexPath.item];
+    [travelDestinationCell.description setEditable:FALSE];
     travelDestinationCell.description.text = travelDestination.shortDescrption;
+
+    void (^blockLoadImages)() =  ^{
+        Image *firstImage = (Image *)[travelDestination.images objectAtIndex:0];
+        NSString *urlEncodedId = firstImage.id;
+        urlEncodedId = [urlEncodedId stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
+        NSURL * imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://usercontent.googleapis.com/freebase/v1/image/%@", urlEncodedId]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        UIImage *image = [UIImage imageWithData:imageData];
+        dispatch_async(dispatch_get_main_queue(),^{
+            travelDestinationCell.image.image = image;
+        });
+    };
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), blockLoadImages);
+    
     return travelDestinationCell;
-    
-    
     
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 //
