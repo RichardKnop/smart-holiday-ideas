@@ -25,6 +25,10 @@
 		D92BC9B217514EC400479C6D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC99E1751457800479C6D /* FMDatabase.m */; };
 		D92BC9B317514EC900479C6D /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9A71751458100479C6D /* FMResultSet.m */; };
 		D92BC9B61751534700479C6D /* TravelDestinationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9B51751534700479C6D /* TravelDestinationCell.m */; };
+		D92BC9B81751607B00479C6D /* travel-destinations.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D92BC999175142ED00479C6D /* travel-destinations.sqlite */; };
+		D92BC9BB1751647600479C6D /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9BA1751647600479C6D /* Airport.m */; };
+		D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9BD1751648C00479C6D /* TouristAttraction.m */; };
+		D92BC9C11751672600479C6D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C01751672600479C6D /* Image.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +50,7 @@
 		D92BC98F175140E500479C6D /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		D92BC991175140E500479C6D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		D92BC992175140E500479C6D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		D92BC999175142ED00479C6D /* travel-destinations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = "travel-destinations.sqlite"; sourceTree = "<group>"; };
-		D92BC99A1751433600479C6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D92BC999175142ED00479C6D /* travel-destinations.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = "travel-destinations.sqlite"; path = "Smart Holiday Ideas/travel-destinations.sqlite"; sourceTree = "<group>"; };
 		D92BC99D1751457800479C6D /* FMDatabase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		D92BC99E1751457800479C6D /* FMDatabase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		D92BC99F1751457800479C6D /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -66,6 +69,12 @@
 		D92BC9B017514C8E00479C6D /* TravelDestination.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDestination.m; sourceTree = "<group>"; };
 		D92BC9B41751534700479C6D /* TravelDestinationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TravelDestinationCell.h; sourceTree = "<group>"; };
 		D92BC9B51751534700479C6D /* TravelDestinationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TravelDestinationCell.m; sourceTree = "<group>"; };
+		D92BC9B91751647600479C6D /* Airport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Airport.h; sourceTree = "<group>"; };
+		D92BC9BA1751647600479C6D /* Airport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Airport.m; sourceTree = "<group>"; };
+		D92BC9BC1751648C00479C6D /* TouristAttraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouristAttraction.h; sourceTree = "<group>"; };
+		D92BC9BD1751648C00479C6D /* TouristAttraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouristAttraction.m; sourceTree = "<group>"; };
+		D92BC9BF1751672600479C6D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		D92BC9C01751672600479C6D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +95,7 @@
 		D92BC967175140E400479C6D = {
 			isa = PBXGroup;
 			children = (
-				D92BC9A8175145F600479C6D /* libsqlite3.dylib */,
-				D92BC99A1751433600479C6D /* CoreData.framework */,
+				D92BC9B71751605B00479C6D /* Resources */,
 				D92BC979175140E400479C6D /* Smart Holiday Ideas */,
 				D92BC972175140E400479C6D /* Frameworks */,
 				D92BC971175140E400479C6D /* Products */,
@@ -105,6 +113,7 @@
 		D92BC972175140E400479C6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D92BC9A8175145F600479C6D /* libsqlite3.dylib */,
 				D92BC973175140E400479C6D /* UIKit.framework */,
 				D92BC975175140E400479C6D /* Foundation.framework */,
 				D92BC977175140E400479C6D /* CoreGraphics.framework */,
@@ -135,7 +144,6 @@
 		D92BC97A175140E400479C6D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D92BC999175142ED00479C6D /* travel-destinations.sqlite */,
 				D92BC97B175140E400479C6D /* Smart Holiday Ideas-Info.plist */,
 				D92BC97C175140E400479C6D /* InfoPlist.strings */,
 				D92BC97F175140E400479C6D /* main.m */,
@@ -179,8 +187,22 @@
 			children = (
 				D92BC9AF17514C8E00479C6D /* TravelDestination.h */,
 				D92BC9B017514C8E00479C6D /* TravelDestination.m */,
+				D92BC9B91751647600479C6D /* Airport.h */,
+				D92BC9BA1751647600479C6D /* Airport.m */,
+				D92BC9BC1751648C00479C6D /* TouristAttraction.h */,
+				D92BC9BD1751648C00479C6D /* TouristAttraction.m */,
+				D92BC9BF1751672600479C6D /* Image.h */,
+				D92BC9C01751672600479C6D /* Image.m */,
 			);
 			name = Entity;
+			sourceTree = "<group>";
+		};
+		D92BC9B71751605B00479C6D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D92BC999175142ED00479C6D /* travel-destinations.sqlite */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92BC9B81751607B00479C6D /* travel-destinations.sqlite in Resources */,
 				D92BC97E175140E400479C6D /* InfoPlist.strings in Resources */,
 				D92BC986175140E400479C6D /* Default.png in Resources */,
 				D92BC988175140E400479C6D /* Default@2x.png in Resources */,
@@ -258,6 +281,9 @@
 				D92BC9AD17514A3300479C6D /* DatabaseService.m in Sources */,
 				D92BC9B117514C8E00479C6D /* TravelDestination.m in Sources */,
 				D92BC9B61751534700479C6D /* TravelDestinationCell.m in Sources */,
+				D92BC9BB1751647600479C6D /* Airport.m in Sources */,
+				D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */,
+				D92BC9C11751672600479C6D /* Image.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

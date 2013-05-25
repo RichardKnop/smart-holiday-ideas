@@ -16,5 +16,8 @@
 @property (strong, nonatomic) NSString *officialWebsite;
 @property (strong, nonatomic) NSNumber *latitude;
 @property (strong, nonatomic) NSNumber *longitude;
+@property (strong, nonatomic) NSMutableArray *airports;
+@property (strong, nonatomic) NSMutableArray *touristAttractions;
+@property (strong, nonatomic) NSMutableArray *images;
 
 @end

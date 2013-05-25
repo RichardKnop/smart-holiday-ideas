@@ -12,6 +12,7 @@
 
 #import "AppDelegate.h"
 #import "TravelDestinationCell.h"
+#import "TravelDestination.h"
 
 @interface MasterViewController () {
     NSMutableArray *_objects;
@@ -29,17 +30,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+//
+//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+//    self.navigationItem.rightBarButtonItem = addButton;
     
     // Database Service
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    self.databaseService = [[DatabaseService alloc] init];
-    self.databaseService.databasePath = appDelegate.databasePath;
-    self.travelDestinations = [self.databaseService getTravelDestinations:10 offset:0];
-    NSLog(@"%@", [self.travelDestinations count]);
+    self.travelDestinations = [appDelegate.databaseService getTravelDestinations:10 skip:0];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,6 +65,8 @@
     TravelDestination *travelDestination = [self.travelDestinations objectAtIndex:indexPath.item];
     travelDestinationCell.description.text = travelDestination.shortDescrption;
     return travelDestinationCell;
+    
+    
     
 //    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 //

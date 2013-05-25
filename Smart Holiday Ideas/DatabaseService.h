@@ -9,12 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"
 #import "FMResultSet.h"
-#import "TravelDestination.h"
 
 @interface DatabaseService : NSObject
 
 @property (strong, nonatomic) NSString *databasePath;
 
-- (NSMutableArray *)getTravelDestinations:(NSInteger)limit offset:(NSInteger)offset;
+- (NSMutableArray *)getTravelDestinations:(NSInteger)limit skip:(NSInteger)offset;
+
+- (NSMutableArray *)getTravelDestnationAirports:(NSString *)travelDestinationId;
+
+- (NSMutableArray *)getTravelDestnationTouristAttractions:(NSString *)travelDestinationId;
+
+- (NSMutableArray *)getTravelDestnationImages:(NSString *)travelDestinationId;
 
 @end

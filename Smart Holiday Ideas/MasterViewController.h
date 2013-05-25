@@ -12,7 +12,6 @@
 
 @interface MasterViewController : UITableViewController
 
-@property (strong, nonatomic) DatabaseService *databaseService;
 @property (strong, nonatomic) NSMutableArray *travelDestinations;
 
 @end

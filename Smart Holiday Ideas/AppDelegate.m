@@ -17,6 +17,7 @@
     NSString *documentDir = [documentPaths objectAtIndex:0];
     self.databasePath = [documentDir stringByAppendingPathComponent:self.databaseName];
     [self createDatabaseIfNotExists];
+    [self initDatabaseService];
 
     // Override point for customization after application launch.
     return YES;
@@ -58,7 +59,18 @@
     }
     NSLog(@"Copying database");
     NSString *databasePathFromApp = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:self.databaseName];
+    
+    if (FALSE == [[NSFileManager defaultManager] fileExistsAtPath:databasePathFromApp]) {
+        [NSException raise:@"File not found" format:@"File %@ not found", databasePathFromApp];
+    }
+    
     [fileManager copyItemAtPath:databasePathFromApp toPath:self.databasePath error:nil];
+}
+
+- (void)initDatabaseService
+{
+    self.databaseService = [[DatabaseService alloc] init];
+    self.databaseService.databasePath = self.databasePath;
 }
 
 
