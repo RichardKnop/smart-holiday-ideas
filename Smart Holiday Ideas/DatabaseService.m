@@ -15,9 +15,28 @@
 
 @implementation DatabaseService
 
+- (int)countTravelDestinations
+{
+    int count = 0;
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
+    [db open];
+    NSString *query = @"SELECT COUNT(id) FROM travelDestination";
+    FMResultSet *results = [db executeQuery:query];
+    if ([results next]) {
+        count = [results intForColumnIndex:0];
+    }
+    if ([db hadError]) {
+        NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
+    [db close];
+    
+    return count;
+}
+
 - (NSMutableArray *) getTravelDestinations:(int)limit skip:(int)offset
 {
     NSMutableArray *travelDestinations = [[NSMutableArray alloc] init];
+    
     FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
     [db open];
     NSString *query = [NSString stringWithFormat:@"SELECT * FROM travelDestination LIMIT %d OFFSET %d", limit, offset];
@@ -47,6 +66,7 @@
 - (NSMutableArray *) getTravelDestnationAirports:(NSString *)travelDestinationId
 {
     NSMutableArray *airports = [[NSMutableArray alloc] init];
+    
     FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
     [db open];
     NSString *query = [NSString stringWithFormat:@"SELECT a.id FROM airport a INNER JOIN travelDestinationAirport tda ON tda.airportId = a.id WHERE tda.travelDestinationId = '%@'", travelDestinationId];
@@ -59,12 +79,14 @@
     if ([db hadError]) {
         NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
     [db close];
+    
     return airports;
 }
 
 - (NSMutableArray *) getTravelDestnationTouristAttractions:(NSString *)travelDestinationId
 {
     NSMutableArray *attractions = [[NSMutableArray alloc] init];
+    
     FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
     [db open];
     NSString *query = [NSString stringWithFormat:@"SELECT ta.id FROM touristAttraction ta INNER JOIN travelDestinationTouristAttraction tdta ON tdta.touristAttractionId = ta.id WHERE tdta.travelDestinationId = '%@'", travelDestinationId];
@@ -77,12 +99,14 @@
     if ([db hadError]) {
         NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
     [db close];
+    
     return attractions;
 }
 
 - (NSMutableArray *) getTravelDestnationImages:(NSString *)travelDestinationId
 {
     NSMutableArray *images = [[NSMutableArray alloc] init];
+    
     FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
     [db open];
     NSString *query = [NSString stringWithFormat:@"SELECT id FROM image WHERE travelDestinationId = '%@'", travelDestinationId];
@@ -95,6 +119,7 @@
     if ([db hadError]) {
         NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
     [db close];
+    
     return images;
 }
 

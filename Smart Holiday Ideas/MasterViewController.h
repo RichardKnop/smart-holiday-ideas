@@ -12,8 +12,9 @@
 
 @interface MasterViewController : UITableViewController
 
+@property (strong, nonatomic) DatabaseService *databaseService;
 @property (strong, nonatomic) NSMutableArray *travelDestinations;
-@property (strong, nonatomic) NSMutableDictionary *imageCache;
+@property (strong, nonatomic) NSMutableArray *imageCache;
 @property (nonatomic, assign) BOOL isLoadingMoreContent;
 @property int limit;
 @property int offset;

@@ -29,6 +29,7 @@
 		D92BC9BB1751647600479C6D /* Airport.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9BA1751647600479C6D /* Airport.m */; };
 		D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9BD1751648C00479C6D /* TouristAttraction.m */; };
 		D92BC9C11751672600479C6D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C01751672600479C6D /* Image.m */; };
+		D92BC9C517518B2900479C6D /* AsyncImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C417518B2900479C6D /* AsyncImageRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,8 @@
 		D92BC9BD1751648C00479C6D /* TouristAttraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouristAttraction.m; sourceTree = "<group>"; };
 		D92BC9BF1751672600479C6D /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
 		D92BC9C01751672600479C6D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		D92BC9C317518B2900479C6D /* AsyncImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageRequest.h; sourceTree = "<group>"; };
+		D92BC9C417518B2900479C6D /* AsyncImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +196,8 @@
 				D92BC9BD1751648C00479C6D /* TouristAttraction.m */,
 				D92BC9BF1751672600479C6D /* Image.h */,
 				D92BC9C01751672600479C6D /* Image.m */,
+				D92BC9C317518B2900479C6D /* AsyncImageRequest.h */,
+				D92BC9C417518B2900479C6D /* AsyncImageRequest.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				D92BC9BB1751647600479C6D /* Airport.m in Sources */,
 				D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */,
 				D92BC9C11751672600479C6D /* Image.m in Sources */,
+				D92BC9C517518B2900479C6D /* AsyncImageRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +412,7 @@
 				D92BC998175140E500479C6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

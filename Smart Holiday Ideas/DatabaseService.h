@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) NSString *databasePath;
 
+- (int)countTravelDestinations;
+
 - (NSMutableArray *)getTravelDestinations:(int)limit skip:(int)offset;
 
 - (NSMutableArray *)getTravelDestnationAirports:(NSString *)travelDestinationId;

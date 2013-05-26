@@ -14,6 +14,7 @@
 #import "TravelDestinationCell.h"
 #import "TravelDestination.h"
 #import "Image.h"
+#import "AsyncImageRequest.h"
 
 @interface MasterViewController ()
 
@@ -29,21 +30,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-//
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
     
     // Database Service
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    self.databaseService = appDelegate.databaseService;
+    
     self.isLoadingMoreContent = FALSE;
     self.limit = 20;
     self.offset = 0;
-    self.count = 40;
-    self.imageCache = [[NSMutableDictionary alloc] initWithCapacity:self.count];
-
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    self.travelDestinations = [appDelegate.databaseService getTravelDestinations:self.limit skip:self.offset];
+    self.count = [self.databaseService countTravelDestinations];
+    self.imageCache = [[NSMutableArray alloc] init];
+    for (int i = 0; i < self.count; i++) {
+        AsyncImageRequest *asyncImageRequest = [[AsyncImageRequest alloc] init];
+        asyncImageRequest.requestSent = FALSE;
+        asyncImageRequest.requestCompleted = FALSE;
+        [self.imageCache addObject:asyncImageRequest];
+    }
+    self.travelDestinations = [self.databaseService getTravelDestinations:self.limit skip:self.offset];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,26 +76,31 @@
     [travelDestinationCell.description setEditable:FALSE];
     travelDestinationCell.description.text = travelDestination.shortDescrption;
     
-    Image *firstImage = (Image *)[travelDestination.images objectAtIndex:0];
-    // If we have already downloaded the image, use the cached image
-    if (nil != [self.imageCache objectForKey:firstImage.id]) {
-        travelDestinationCell.image.image = [self.imageCache objectForKey:firstImage.id];
+    AsyncImageRequest *asyncImageRequest = (AsyncImageRequest *)[self.imageCache objectAtIndex:indexPath.item];
+    // Use cached image if possible
+    if (TRUE == asyncImageRequest.requestCompleted) {
+        travelDestinationCell.image.image = asyncImageRequest.image;
         return travelDestinationCell;
     }
     // Otherwise send async request to download the image
     void (^blockLoadImage)() =  ^{
+        asyncImageRequest.requestSent = TRUE;
+        Image *firstImage = (Image *)[travelDestination.images objectAtIndex:0];
         NSString *urlEncodedId = firstImage.id;
         urlEncodedId = [urlEncodedId stringByReplacingOccurrencesOfString:@"/" withString:@"%2F"];
         NSURL * imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://usercontent.googleapis.com/freebase/v1/image/%@", urlEncodedId]];
         NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-        UIImage *image = [UIImage imageWithData:imageData];
         dispatch_async(dispatch_get_main_queue(),^{
             NSLog(@"loading image");
-            [self.imageCache setObject:image forKey:firstImage.id];
-            travelDestinationCell.image.image = image;
+            asyncImageRequest.image = [UIImage imageWithData:imageData];
+            asyncImageRequest.requestCompleted = TRUE;
+            travelDestinationCell.image.image = asyncImageRequest.image;
         });
     };
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), blockLoadImage);
+    // If the request has already been sent, don't send it again
+    if (FALSE == asyncImageRequest.requestSent) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), blockLoadImage);
+    }
     return travelDestinationCell;
 }
 
