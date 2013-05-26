@@ -15,7 +15,7 @@
 
 @implementation DatabaseService
 
-- (NSMutableArray *) getTravelDestinations:(NSInteger)limit skip:(NSInteger)offset
+- (NSMutableArray *) getTravelDestinations:(int)limit skip:(int)offset
 {
     NSMutableArray *travelDestinations = [[NSMutableArray alloc] init];
     FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];

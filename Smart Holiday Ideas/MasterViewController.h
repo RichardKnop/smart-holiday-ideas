@@ -13,5 +13,10 @@
 @interface MasterViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *travelDestinations;
+@property (strong, nonatomic) NSMutableDictionary *imageCache;
+@property (nonatomic, assign) BOOL isLoadingMoreContent;
+@property int limit;
+@property int offset;
+@property int count;
 
 @end
