@@ -12,6 +12,9 @@
 #import "Airport.h"
 #import "TouristAttraction.h"
 #import "Image.h"
+#import "AverageMaximumTemperature.h"
+#import "AverageMinimumTemperature.h"
+#import "AverageRainfall.h"
 
 @implementation DatabaseService
 
@@ -53,6 +56,9 @@
         travelDestination.airports = [self getTravelDestnationAirports:travelDestination.id];
         travelDestination.touristAttractions = [self getTravelDestnationTouristAttractions:travelDestination.id];
         travelDestination.images = [self getTravelDestnationImages:travelDestination.id];
+        travelDestination.averageMaximumTemperatures = [self getTravelDestnationAverageMaximumTemperatures:travelDestination.id];
+        travelDestination.averageMinimumTemperatures = [self getTravelDestnationAverageMinimumTemperatures:travelDestination.id];
+        travelDestination.averageRainfalls = [self getTravelDestnationAverageRainfalls:travelDestination.id];
         
         [travelDestinations addObject:travelDestination];
     }
@@ -121,6 +127,69 @@
     [db close];
     
     return images;
+}
+
+- (NSMutableArray *) getTravelDestnationAverageMaximumTemperatures:(NSString *)travelDestinationId
+{
+    NSMutableArray *temperatures = [[NSMutableArray alloc] init];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT month, temperature FROM averageMaximumTemperature WHERE travelDestinationId = '%@'", travelDestinationId];
+    FMResultSet *results = [db executeQuery:query];
+    while ([results next]) {
+        AverageMaximumTemperature *temperature = [[AverageMaximumTemperature alloc] init];
+        temperature.month = [results stringForColumn:@"month"];
+        temperature.temperature = [results doubleForColumn:@"temperature"];
+        [temperatures addObject:temperature];
+    }
+    if ([db hadError]) {
+        NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
+    [db close];
+    
+    return temperatures;
+}
+
+- (NSMutableArray *) getTravelDestnationAverageMinimumTemperatures:(NSString *)travelDestinationId
+{
+    NSMutableArray *temperatures = [[NSMutableArray alloc] init];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT month, temperature FROM averageMinimumTemperature WHERE travelDestinationId = '%@'", travelDestinationId];
+    FMResultSet *results = [db executeQuery:query];
+    while ([results next]) {
+        AverageMinimumTemperature *temperature = [[AverageMinimumTemperature alloc] init];
+        temperature.month = [results stringForColumn:@"month"];
+        temperature.temperature = [results doubleForColumn:@"temperature"];
+        [temperatures addObject:temperature];
+    }
+    if ([db hadError]) {
+        NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
+    [db close];
+    
+    return temperatures;
+}
+
+- (NSMutableArray *) getTravelDestnationAverageRainfalls:(NSString *)travelDestinationId
+{
+    NSMutableArray *rainfalls = [[NSMutableArray alloc] init];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT month, rainfall FROM averageRainfall WHERE travelDestinationId = '%@'", travelDestinationId];
+    FMResultSet *results = [db executeQuery:query];
+    while ([results next]) {
+        AverageRainfall *rainfall = [[AverageRainfall alloc] init];
+        rainfall.month = [results stringForColumn:@"month"];
+        rainfall.rainfall = [results doubleForColumn:@"rainfall"];
+        [rainfalls addObject:rainfall];
+    }
+    if ([db hadError]) {
+        NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
+    [db close];
+    
+    return rainfalls;
 }
 
 @end

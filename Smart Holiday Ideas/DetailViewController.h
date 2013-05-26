@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TravelDestination.h"
+#import <MapKit/MapKit.h>
+
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) TravelDestination *detailItem;
+@property (strong, nonatomic) UIImage *cachedImage;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+- (void)configure;
+
 @end

@@ -30,6 +30,11 @@
 		D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9BD1751648C00479C6D /* TouristAttraction.m */; };
 		D92BC9C11751672600479C6D /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C01751672600479C6D /* Image.m */; };
 		D92BC9C517518B2900479C6D /* AsyncImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C417518B2900479C6D /* AsyncImageRequest.m */; };
+		D92BC9C717518FA900479C6D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92BC9C617518FA900479C6D /* QuartzCore.framework */; };
+		D92BC9CA1751906E00479C6D /* AverageMaximumTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9C91751906D00479C6D /* AverageMaximumTemperature.m */; };
+		D92BC9CD1751908400479C6D /* AverageMinimumTemperature.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9CC1751908300479C6D /* AverageMinimumTemperature.m */; };
+		D92BC9D01751908E00479C6D /* AverageRainfall.m in Sources */ = {isa = PBXBuildFile; fileRef = D92BC9CF1751908E00479C6D /* AverageRainfall.m */; };
+		D92BC9D217519E1900479C6D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D92BC9D117519E1900479C6D /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +83,15 @@
 		D92BC9C01751672600479C6D /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
 		D92BC9C317518B2900479C6D /* AsyncImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageRequest.h; sourceTree = "<group>"; };
 		D92BC9C417518B2900479C6D /* AsyncImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageRequest.m; sourceTree = "<group>"; };
+		D92BC9C617518FA900479C6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D92BC9C81751906D00479C6D /* AverageMaximumTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageMaximumTemperature.h; sourceTree = "<group>"; };
+		D92BC9C91751906D00479C6D /* AverageMaximumTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageMaximumTemperature.m; sourceTree = "<group>"; };
+		D92BC9CB1751908300479C6D /* AverageMinimumTemperature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageMinimumTemperature.h; sourceTree = "<group>"; };
+		D92BC9CC1751908300479C6D /* AverageMinimumTemperature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageMinimumTemperature.m; sourceTree = "<group>"; };
+		D92BC9CE1751908E00479C6D /* AverageRainfall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AverageRainfall.h; sourceTree = "<group>"; };
+		D92BC9CF1751908E00479C6D /* AverageRainfall.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AverageRainfall.m; sourceTree = "<group>"; };
+		D92BC9D117519E1900479C6D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D92BC9D317519F1800479C6D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +99,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92BC9D217519E1900479C6D /* MapKit.framework in Frameworks */,
+				D92BC9C717518FA900479C6D /* QuartzCore.framework in Frameworks */,
 				D92BC9A9175145F600479C6D /* libsqlite3.dylib in Frameworks */,
 				D92BC974175140E400479C6D /* UIKit.framework in Frameworks */,
 				D92BC976175140E400479C6D /* Foundation.framework in Frameworks */,
@@ -116,6 +132,9 @@
 		D92BC972175140E400479C6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D92BC9D317519F1800479C6D /* CoreLocation.framework */,
+				D92BC9D117519E1900479C6D /* MapKit.framework */,
+				D92BC9C617518FA900479C6D /* QuartzCore.framework */,
 				D92BC9A8175145F600479C6D /* libsqlite3.dylib */,
 				D92BC973175140E400479C6D /* UIKit.framework */,
 				D92BC975175140E400479C6D /* Foundation.framework */,
@@ -198,6 +217,12 @@
 				D92BC9C01751672600479C6D /* Image.m */,
 				D92BC9C317518B2900479C6D /* AsyncImageRequest.h */,
 				D92BC9C417518B2900479C6D /* AsyncImageRequest.m */,
+				D92BC9C81751906D00479C6D /* AverageMaximumTemperature.h */,
+				D92BC9C91751906D00479C6D /* AverageMaximumTemperature.m */,
+				D92BC9CB1751908300479C6D /* AverageMinimumTemperature.h */,
+				D92BC9CC1751908300479C6D /* AverageMinimumTemperature.m */,
+				D92BC9CE1751908E00479C6D /* AverageRainfall.h */,
+				D92BC9CF1751908E00479C6D /* AverageRainfall.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -290,6 +315,9 @@
 				D92BC9BE1751648C00479C6D /* TouristAttraction.m in Sources */,
 				D92BC9C11751672600479C6D /* Image.m in Sources */,
 				D92BC9C517518B2900479C6D /* AsyncImageRequest.m in Sources */,
+				D92BC9CA1751906E00479C6D /* AverageMaximumTemperature.m in Sources */,
+				D92BC9CD1751908400479C6D /* AverageMinimumTemperature.m in Sources */,
+				D92BC9D01751908E00479C6D /* AverageRainfall.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

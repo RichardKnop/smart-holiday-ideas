@@ -12,5 +12,10 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UITextView *description;
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
+
+@property (weak, nonatomic) NSString *longDescription;
+
+- (IBAction)clickMore:(id)sender;
 
 @end

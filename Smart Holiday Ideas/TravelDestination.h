@@ -19,5 +19,8 @@
 @property (strong, nonatomic) NSMutableArray *airports;
 @property (strong, nonatomic) NSMutableArray *touristAttractions;
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSMutableArray *averageMaximumTemperatures;
+@property (strong, nonatomic) NSMutableArray *averageMinimumTemperatures;
+@property (strong, nonatomic) NSMutableArray *averageRainfalls;
 
 @end

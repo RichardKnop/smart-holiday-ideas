@@ -24,4 +24,10 @@
 
 - (NSMutableArray *)getTravelDestnationImages:(NSString *)travelDestinationId;
 
+- (NSMutableArray *)getTravelDestnationAverageMaximumTemperatures:(NSString *)travelDestinationId;
+
+- (NSMutableArray *)getTravelDestnationAverageMinimumTemperatures:(NSString *)travelDestinationId;
+
+- (NSMutableArray *)getTravelDestnationAverageRainfalls:(NSString *)travelDestinationId;
+
 @end

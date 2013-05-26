@@ -10,4 +10,8 @@
 
 @implementation TravelDestinationCell
 
+- (IBAction)clickMore:(id)sender {
+    self.description.text = self.longDescription;
+}
+
 @end
