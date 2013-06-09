@@ -36,6 +36,39 @@
     return count;
 }
 
+- (NSMutableArray *) getRandomTravelDestinations:(int)limit
+{
+    NSMutableArray *travelDestinations = [[NSMutableArray alloc] init];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.databasePath];
+    [db open];
+    NSString *query = [NSString stringWithFormat:@"SELECT * FROM travelDestination ORDER BY RANDOM() LIMIT %d", limit];
+    FMResultSet *results = [db executeQuery:query];
+    while ([results next]) {
+        TravelDestination *travelDestination = [[TravelDestination alloc] init];
+        travelDestination.id = [results stringForColumn:@"id"];
+        travelDestination.shortDescrption = [results stringForColumn:@"shortDescription"];
+        travelDestination.longDescription = [results stringForColumn:@"longDescription"];
+        travelDestination.officialWebsite = [results stringForColumn:@"officialWebsite"];
+        travelDestination.latitude = [NSNumber numberWithDouble:[results longForColumn:@"latitude"]];
+        travelDestination.longitude = [NSNumber numberWithDouble:[results longForColumn:@"longitude"]];
+        
+        travelDestination.airports = [self getTravelDestnationAirports:travelDestination.id];
+        travelDestination.touristAttractions = [self getTravelDestnationTouristAttractions:travelDestination.id];
+        travelDestination.images = [self getTravelDestnationImages:travelDestination.id];
+        travelDestination.averageMaximumTemperatures = [self getTravelDestnationAverageMaximumTemperatures:travelDestination.id];
+        travelDestination.averageMinimumTemperatures = [self getTravelDestnationAverageMinimumTemperatures:travelDestination.id];
+        travelDestination.averageRainfalls = [self getTravelDestnationAverageRainfalls:travelDestination.id];
+        
+        [travelDestinations addObject:travelDestination];
+    }
+    if ([db hadError]) {
+        NSLog(@"DB Error %d: %@", [db lastErrorCode], [db lastErrorMessage]); }
+    [db close];
+    
+    return travelDestinations;
+}
+
 - (NSMutableArray *) getTravelDestinations:(int)limit skip:(int)offset
 {
     NSMutableArray *travelDestinations = [[NSMutableArray alloc] init];

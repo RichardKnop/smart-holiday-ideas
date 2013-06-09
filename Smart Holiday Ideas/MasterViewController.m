@@ -36,8 +36,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
     self.databaseService = appDelegate.databaseService;
     
+    // content
     self.isLoadingMoreContent = NO;
-    self.limit = 20;
+    self.limit = 10;
     self.offset = 0;
     self.count = [self.databaseService countTravelDestinations];
     self.imageCache = [[NSMutableArray alloc] init];
@@ -47,7 +48,24 @@
         asyncImageRequest.requestCompleted = NO;
         [self.imageCache addObject:asyncImageRequest];
     }
-    self.travelDestinations = [self.databaseService getTravelDestinations:self.limit skip:self.offset];
+    self.travelDestinations = [self.databaseService getRandomTravelDestinations:self.limit];
+    
+    // toolbar
+    self.navigationController.toolbarHidden = NO;
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *shuffleButton = [[UIBarButtonItem alloc] initWithTitle:@"Shuffle" style:UIBarButtonItemStyleBordered target:self action:@selector(shuffle)];
+    self.toolbarItems = [NSArray arrayWithObjects:flexibleSpace, shuffleButton, flexibleSpace, nil];
+}
+
+- (void)shuffle
+{
+    self.travelDestinations = [self.databaseService getRandomTravelDestinations:self.limit];
+    for (int i = 0; i < self.count; i++) {
+        AsyncImageRequest *asyncImageRequest = [self.imageCache objectAtIndex:i];
+        asyncImageRequest.requestSent = NO;
+        asyncImageRequest.requestCompleted = NO;
+    }
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,6 +108,13 @@
     if (YES == asyncImageRequest.requestCompleted) {
         travelDestinationCell.image.image = asyncImageRequest.image;
         return travelDestinationCell;
+    } else {
+        asyncImageRequest.indicatorView = [[UIView alloc] initWithFrame:CGRectMake(11.0f, 20.0f, 75.0f, 75.0f)];
+        [travelDestinationCell.contentView addSubview:asyncImageRequest.indicatorView];
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [indicator startAnimating];
+        indicator.center = CGPointMake(37.5, 37.5);
+        [asyncImageRequest.indicatorView addSubview:indicator];
     }
     // Otherwise send async request to download the image
     void (^blockLoadImage)() =  ^{
@@ -103,6 +128,7 @@
             asyncImageRequest.image = [UIImage imageWithData:imageData];
             asyncImageRequest.requestCompleted = YES;
             travelDestinationCell.image.image = asyncImageRequest.image;
+            [asyncImageRequest.indicatorView removeFromSuperview];
         });
     };
     // If the request has already been sent, don't send it again
@@ -122,25 +148,25 @@
 }
 
 - (void)scrollViewDidScroll: (UIScrollView *)scroll {
-    // UITableView only moves in one direction, y axis
-    NSInteger currentOffset = scroll.contentOffset.y;
-    NSInteger maximumOffset = scroll.contentSize.height - scroll.frame.size.height;
-    
-    // Change 10.0 to adjust the distance from bottom
-    if (maximumOffset - currentOffset <= 10.0) {
-        if (FALSE == self.isLoadingMoreContent && self.offset + 20 < self.count) {
-            self.isLoadingMoreContent = YES;
-            self.offset += 20;
-            
-            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            NSMutableArray *moreTravelDestinations = [appDelegate.databaseService getTravelDestinations:self.limit  skip:self.offset];
-                                                      for (TravelDestination *travelDestination in moreTravelDestinations) {
-                                                          [self.travelDestinations addObject:travelDestination];
-                                                      }
-            self.isLoadingMoreContent = NO;
-            [self.tableView reloadData];
-        }
-    }
+//    // UITableView only moves in one direction, y axis
+//    NSInteger currentOffset = scroll.contentOffset.y;
+//    NSInteger maximumOffset = scroll.contentSize.height - scroll.frame.size.height;
+//    
+//    // Change 10.0 to adjust the distance from bottom
+//    if (maximumOffset - currentOffset <= 50.0) {
+//        if (FALSE == self.isLoadingMoreContent && self.offset + 10 < self.count) {
+//            self.isLoadingMoreContent = YES;
+//            self.offset += 10;
+//            
+//            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+//            NSMutableArray *moreTravelDestinations = [appDelegate.databaseService getTravelDestinations:self.limit  skip:self.offset];
+//                                                      for (TravelDestination *travelDestination in moreTravelDestinations) {
+//                                                          [self.travelDestinations addObject:travelDestination];
+//                                                      }
+//            self.isLoadingMoreContent = NO;
+//            [self.tableView reloadData];
+//        }
+//    }
 }
 
 @end

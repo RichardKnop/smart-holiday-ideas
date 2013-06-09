@@ -16,6 +16,8 @@
 
 - (int)countTravelDestinations;
 
+- (NSMutableArray *)getRandomTravelDestinations:(int)limit;
+
 - (NSMutableArray *)getTravelDestinations:(int)limit skip:(int)offset;
 
 - (NSMutableArray *)getTravelDestnationAirports:(NSString *)travelDestinationId;

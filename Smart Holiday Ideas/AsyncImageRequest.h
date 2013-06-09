@@ -12,6 +12,7 @@
 
 @property (nonatomic, assign) BOOL requestSent;
 @property (nonatomic, assign) BOOL requestCompleted;
+@property (nonatomic, retain) UIView *indicatorView;
 @property (strong, nonatomic) UIImage *image;
 
 @end

@@ -23,22 +23,22 @@
         <scene sceneID="18">
             <objects>
                 <tableViewController storyboardIdentifier="" title="Master" id="12" customClass="MasterViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="125" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="160" sectionHeaderHeight="22" sectionFooterHeight="22" id="13">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TravelDestinationCell" rowHeight="125" id="lJ0-d7-vTF" customClass="TravelDestinationCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="125"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TravelDestinationCell" rowHeight="160" id="lJ0-d7-vTF" customClass="TravelDestinationCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="124"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="159"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5RV-M1-Z5F">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="75" id="I7s-S2-HLx"/>
-                                                <constraint firstAttribute="height" constant="50" id="Y5Z-8t-7mA"/>
+                                                <constraint firstAttribute="width" constant="85" id="1jS-vQ-8nT"/>
+                                                <constraint firstAttribute="height" constant="75" id="ah0-YV-Vuu"/>
                                             </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu" translatesAutoresizingMaskIntoConstraints="NO" id="eZe-hy-4Le">
@@ -47,16 +47,19 @@
                                                 <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                             </accessibility>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="104" id="ANf-wJ-0Dt"/>
+                                                <constraint firstAttribute="height" constant="134" id="7vH-ZD-sSW"/>
                                                 <constraint firstAttribute="width" constant="186" id="xma-IG-6Nm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoDark" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-Yr-Crf">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                            <state key="normal">
-                                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMf-Yr-Crf">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="I1h-0M-YJM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                            <state key="normal" title="Read more...">
+                                                <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <state key="highlighted">
@@ -71,12 +74,13 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="5RV-M1-Z5F" firstAttribute="trailing" secondItem="JMf-Yr-Crf" secondAttribute="trailing" type="default" id="4PN-qN-Qpb"/>
                                     <constraint firstItem="5RV-M1-Z5F" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="20" type="default" id="70p-h9-ORk"/>
                                     <constraint firstItem="5RV-M1-Z5F" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="11" id="EbG-VY-9op"/>
                                     <constraint firstItem="eZe-hy-4Le" firstAttribute="leading" secondItem="lJ0-d7-vTF" secondAttribute="leading" constant="99" id="Jp1-gr-Mlb"/>
-                                    <constraint firstAttribute="bottom" secondItem="JMf-Yr-Crf" secondAttribute="bottom" constant="15" id="Rto-vs-dRN"/>
                                     <constraint firstItem="eZe-hy-4Le" firstAttribute="top" secondItem="lJ0-d7-vTF" secondAttribute="top" constant="11" id="TZ0-Km-Sf5"/>
                                     <constraint firstItem="JMf-Yr-Crf" firstAttribute="leading" secondItem="5RV-M1-Z5F" secondAttribute="leading" type="default" id="l3L-Lf-6oC"/>
+                                    <constraint firstItem="JMf-Yr-Crf" firstAttribute="bottom" secondItem="eZe-hy-4Le" secondAttribute="bottom" type="default" id="niR-58-WqO"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="description" destination="eZe-hy-4Le" id="g6K-Pw-Bmj"/>
@@ -114,6 +118,26 @@
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="DetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailViewController.h"/>
+        </class>
+        <class className="MasterViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MasterViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TravelDestinationCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TravelDestinationCell.h"/>
+            <relationships>
+                <relationship kind="action" name="clickMore:"/>
+                <relationship kind="outlet" name="description" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="image" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="moreButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
